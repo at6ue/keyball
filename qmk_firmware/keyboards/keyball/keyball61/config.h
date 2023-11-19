@@ -36,7 +36,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_WATCHDOG_TIMEOUT  3000
 
 // Tune
-#define TAPPING_TERM 150
+#define TAPPING_TERM 170
 
 #define SPLIT_TRANSACTION_IDS_KB KEYBALL_GET_INFO, KEYBALL_GET_MOTION, KEYBALL_SET_CPI
 
