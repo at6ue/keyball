@@ -36,4 +36,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAP_CODE_DELAY 5
 
 // Tune
-#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define PERMISSIVE_HOLD_PER_KEY

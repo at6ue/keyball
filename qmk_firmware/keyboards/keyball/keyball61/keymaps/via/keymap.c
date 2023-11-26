@@ -74,13 +74,6 @@ void oledkit_render_info_user(void) {
 #endif
 
 // Tune
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LT(3, KC_M):
-            // Do not select the hold action when another key is pressed.
-            return false;
-        default:
-            // Immediately select the hold action when another key is pressed.
-            return true;
-    }
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    return record->event.key.row == 4 || record->event.key.row == 9;
 }
