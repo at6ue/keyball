@@ -35,9 +35,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_WATCHDOG_ENABLE
 #define SPLIT_WATCHDOG_TIMEOUT  3000
 
+#define KEYBOARD_MOD_PACKET_DELAY 20
+
+#ifdef OLED_ENABLE
+#    define SPLIT_OLED_ENABLE
+#endif
+
 // Tune
 #define TAPPING_TERM 160
-#define KEYBOARD_MOD_PACKET_DELAY 20
 
 #define SPLIT_TRANSACTION_IDS_KB KEYBALL_GET_INFO, KEYBALL_GET_MOTION, KEYBALL_SET_CPI
 
@@ -64,7 +69,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #ifndef OLED_FONT_H
-#    define OLED_FONT_H "keyboards/keyball/lib/glcdfont.c"
+#    define OLED_FONT_H "keyboards/keyball/lib/logofont/logofont.c"
+#    define OLED_FONT_START 32
+#    define OLED_FONT_END 195
 #endif
 
 #if !defined(LAYER_STATE_8BIT) && !defined(LAYER_STATE_16BIT) && !defined(LAYER_STATE_32BIT)
