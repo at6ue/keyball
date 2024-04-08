@@ -59,6 +59,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is 3
     keyball_set_scroll_mode(get_highest_layer(state) == 3);
+
+    switch(get_highest_layer(remove_auto_mouse_layer(state, true))) {
+        case 2 ... 3:
+            // remove_auto_mouse_target must be called to adjust state *before* setting enable
+            state = remove_auto_mouse_layer(state, false);
+            set_auto_mouse_enable(false);
+            break;
+        default:
+            set_auto_mouse_enable(true);
+            break;
+    }
     return state;
 }
 
@@ -76,4 +87,9 @@ void oledkit_render_info_user(void) {
 // Tune
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     return record->event.key.row == 4 || record->event.key.row == 9;
+}
+
+bool auto_mouse_activation(report_mouse_t mouse_report) {
+    return mouse_report.x < -1 || 1 < mouse_report.x
+        || mouse_report.y < -1 || 1 < mouse_report.y;
 }
