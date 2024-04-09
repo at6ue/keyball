@@ -30,10 +30,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SOFT_SERIAL_PIN         D2
 #define SPLIT_HAND_MATRIX_GRID  F7, D7
 #define SPLIT_USB_DETECT
-#define SPLIT_USB_TIMEOUT       2000
+#define SPLIT_USB_TIMEOUT       1000
 
 #define SPLIT_WATCHDOG_ENABLE
-#define SPLIT_WATCHDOG_TIMEOUT  3000
+#define SPLIT_WATCHDOG_TIMEOUT  2000
 
 #define KEYBOARD_MOD_PACKET_DELAY 20
 
